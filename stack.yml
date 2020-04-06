@@ -1,0 +1,13 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://gateway.myfaas.flyingfang.com
+functions:
+  py3-demo:
+    lang: python3-http
+    handler: ./py3-demo
+    image: xflying/py3-demo:latest
+    labels:
+      com.openfaas.scale.min: 1
+      com.openfaas.scale.max: 10
+      com.openfaas.scale.factor: 50
